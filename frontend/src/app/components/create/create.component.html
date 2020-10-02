@@ -1,0 +1,53 @@
+<nav class="navbar navbar-dark bg-warning">
+    <a class="navbar-brand mx-auto" >
+    aqui você pode atualizar as informações das trilhas!!</a>
+   </nav>
+   
+   <div class="container">
+     <div class="row">
+       <div class="clo-md-8 mt-4 mx-auto">
+   
+         <ul class="list-group">
+             <li *ngFor="let info of infoArray" 
+             class="list-group-item list-group-item-action"
+             (click)="openForEdit(info)"
+               
+             >
+             <span class="badge badge-dark">{{info.id}}</span>{{info.name}} - {{info.region}}
+
+
+             </li>
+   
+         </ul>    
+         <div class="card mt-4">
+           <div class="card-boby">
+             <div class="card-title">
+               Regista uma nova trilha!
+             </div>
+           <div class="from-group">
+               <input type="text" [(ngModel)]="selectedInfo.name" placeholder="nome da trinha " class="form-control">
+           </div>
+           <div class="from-group">
+            <input type="text" [(ngModel)]="selectedInfo.region" placeholder="region" class="form-control">
+        </div>
+        <button (click)="addOrEdit()" class="btn btn-dark" >
+            Submit  
+        </button>
+        <button 
+        *ngIf="selectedInfo.id !== 0 "
+        class="btn btn-danger"
+        (click)="Delete()">
+        Delete
+        </button>
+           </div>
+         </div>
+   
+       </div>
+       <div class="clo-md-4">
+        
+       </div>
+     </div>
+   </div>
+   
+   
+   
